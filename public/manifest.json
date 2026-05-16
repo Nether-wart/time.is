@@ -4,12 +4,12 @@
   "start_url": ".",
   "icons": [
     {
-      "src": "icon-16x16.ico",
+      "src": "/icon/icon-16x16.ico",
       "sizes": "16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "icon-256x256.png",
+      "src": "/icon/icon-256x256.png",
       "sizes": "256x256",
       "type": "image/png"
     }
