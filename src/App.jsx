@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function App() {
   const now = dayjs();
@@ -12,6 +12,8 @@ function App() {
     parseInt(now.second() / 10),
     now.second() % 10,
   ]);
+
+  const wakeLockRef = useRef(null);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -37,6 +39,9 @@ function App() {
           if (document.fullscreenElement !== null) {
             document.exitFullscreen();
           } else {
+            navigator.wakeLock.request("screen").then((lock) => {
+              wakeLockRef.current = lock;
+            });
             document.documentElement.requestFullscreen();
           }
         }}
